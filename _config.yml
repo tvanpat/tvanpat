@@ -109,8 +109,8 @@ analytics:
 author:
   name             : "Tyson Van Patten"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "Data Science Portfolio"
+  location         : "Virginia"
   email            :
   links:
     - label: "Email"
