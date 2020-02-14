@@ -4,5 +4,5 @@ permalink: /blog-posts/
 title: "Blog Posts by Tags"
 author_profile: true
 header:
-  image:  "/images/union_station.jpg"
+  image:  "/images/unionstation.jpg"
 ---

@@ -1,6 +1,8 @@
 ---
 title: "About"
 permalink: /about/
+header:
+  image: "/images/rivermountain.jpg"
 ---
 
-Filler
+I am blah blah  blah
