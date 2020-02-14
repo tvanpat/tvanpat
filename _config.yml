@@ -107,10 +107,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Tyson Van Patten"
+  name             : "Your Name"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data Science Portfolio"."
-  location         : "Virginia"
+  bio              : "I am an **amazing** person."
+  location         : "Somewhere"
   email            :
   links:
     - label: "Email"
@@ -127,7 +127,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-       url: "https://github.com/tvanpat"
+      # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
