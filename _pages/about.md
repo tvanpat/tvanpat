@@ -2,8 +2,8 @@
 title: "About"
 permalink: /about/
 header:
-  #image: "/images/rivermountain.jpg"
-  <img src="/assets/images/rivermountain.jpg" alt="">
+  overlay_image: "/images/rivermountain.jpg"
+
 ---
 
 I am blah blah  blah
