@@ -7,4 +7,4 @@ header:
 
 ---
 
-dirt skin
+dark skin
