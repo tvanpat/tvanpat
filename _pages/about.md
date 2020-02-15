@@ -48,6 +48,7 @@ as a senior intelligence advisor in both Afghanistan and Iraq.
 ## Certifications
 
 ## Badges
-[Microsoft Openhack: DEVOPS](https://www.youracclaim.com/badges/6c2dfac8-7714-4d77-9885-b5e10d83fece)
+- [Microsoft Openhack: DEVOPS](https://www.youracclaim.com/badges/6c2dfac8-7714-4d77-9885-b5e10d83fece)
 
-Current, active Top Secret/SCI security clearance based on single scope background investigation.
+## Security Clearance
+- Current, active Top Secret/SCI security clearance based on single scope background investigation.
