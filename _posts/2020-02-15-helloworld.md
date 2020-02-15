@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: 2020-02-15
-tags: [Hello World, Test 1]
+tags: [Hello World]
 #header:
   #overlay_image: "/images/blog/1515feb2020.jpg"
   #caption: "Photo credit: [**ev**](https://unsplash.com/photos/gpjvRZyavZc)"
