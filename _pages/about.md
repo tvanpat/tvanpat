@@ -45,7 +45,6 @@ as a senior intelligence advisor in both Afghanistan and Iraq.
 - **University of Arizona**, Bachelors of Arts in History
 - **Cochise College**, Associate's Degree, Intelligence Operations
 
-## Certifications
 
 ## Badges
 - [Microsoft Openhack: DEVOPS](https://www.youracclaim.com/badges/6c2dfac8-7714-4d77-9885-b5e10d83fece)
