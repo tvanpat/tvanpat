@@ -23,3 +23,31 @@ optimization.
 Before my current position I served as an All Source Intelligence Technician (350F).
 I have worked extensively with the Distributed Ground System-A (DCGS-A) and deployed the system as part of [Operation United Assistance](https://www.army.mil/article/141290/dcgs_a_supports_101st_global_efforts_to_contain_spread_of_ebola).  I have served
 as a senior intelligence advisor in both Afghanistan and Iraq.
+
+
+## Skills
+
+### Proficient
+- Python
+- R
+- SQL Databases (PostgreSQL, SQLite)
+- Natural Language Processing (NLTK, gensim, spaCy)
+- Geospatial Visualization (ArcGis)
+
+### Familiar with
+- NoSQL Document Database (MongoDB)
+- NoSQL Graph Database (Neo4j)
+- Linear Optimization (Gurobi Optimizer)
+
+
+## Education
+- **George Mason University**, Master's of Science, Data Analytics
+- **University of Arizona**, Bachelors of Arts in History
+- **Cochise College**, Associate's Degree, Intelligence Operations
+
+## Certifications
+
+## Badges
+[Microsoft Openhack: DEVOPS](https://www.youracclaim.com/badges/6c2dfac8-7714-4d77-9885-b5e10d83fece)
+
+Current, active Top Secret/SCI security clearance based on single scope background investigation.
