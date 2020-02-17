@@ -8,6 +8,10 @@ tags: [Hello World]
 excerpt: "Hello World"
 ---
 
+<figure style="width: 30%" class="align-right">
+  <img src="{{ site.url }}{{ site.baseurl }}https://imgs.xkcd.com/comics/machine_learning_captcha.png" alt="">
+</figure>
+
 # Welcome
 
 This is my first post and I am still testing.  1300 test
