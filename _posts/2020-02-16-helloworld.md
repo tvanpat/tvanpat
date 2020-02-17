@@ -5,7 +5,7 @@ tags: [Hello World, Bounty_bot, NFL2SQL, NFL2VIS]
 #header:
   #overlay_image: "/images/blog/1515feb2020.jpg"
   #caption: "Photo credit: [**ev**](https://unsplash.com/photos/gpjvRZyavZc)"
-excerpt: "Hello World"
+excerpt: "Hello World, a brief overview of what I hope to accomplish in this blog."
 ---
 <figure style="width: 30%" class="align-right">
   <a href="https://xkcd.com/2228/"><img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" alt=""></a>
