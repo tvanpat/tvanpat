@@ -9,7 +9,7 @@ excerpt: "Hello World"
 ---
 
 <figure style="width: 30%" class="align-right">
-  <href="https://xkcd.com/2228/"><img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" alt="">
+  <a href="https://xkcd.com/2228/"><img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" alt=""></a>
 </figure>
 
 # Welcome
