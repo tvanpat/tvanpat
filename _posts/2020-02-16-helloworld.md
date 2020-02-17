@@ -2,9 +2,6 @@
 title: "Hello World"
 date: 2020-02-16
 tags: [Hello World, Bounty_bot, NFL2SQL, NFL2VIS]
-#header:
-  #overlay_image: "/images/blog/1515feb2020.jpg"
-  #caption: "Photo credit: [**ev**](https://unsplash.com/photos/gpjvRZyavZc)"
 excerpt: "Hello World, a brief overview of what I hope to accomplish in this blog."
 ---
 <figure style="width: 30%" class="align-right">
