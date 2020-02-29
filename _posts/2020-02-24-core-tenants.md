@@ -2,7 +2,7 @@
 title: "A Building is Only Good as its Foundation"
 date: 2020-02-28
 tags: [Data Science, Team Foundation]
-excerpt: "."
+excerpt: "The guiding principles of our data science team and how we employ them."
 ---
 When my team was first formed, I wanted to establish a series of guidelines on our operational philosophy.
 I wanted to avoid a typical mission statement as often times they become buzzword bingo and ultimately
