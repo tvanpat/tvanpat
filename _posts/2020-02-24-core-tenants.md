@@ -10,6 +10,6 @@ meaningless.  So we developed a series of core tenents.  My goal was that when o
 read the core tenents they understood how we would approach their problem.  Also these tenets would
 guide us and we began a project.  
 
-<figure style="width: 30%" class="align-middle">
+<figure style="width: 30%" class="align-right">
   <img src="{{ site.url }}{{ site.baseurl }}/images/blog/core_tenants.png" alt="">
 </figure>
