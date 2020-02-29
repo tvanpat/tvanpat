@@ -14,6 +14,6 @@ guide us and we began a project.
   <img src="{{ site.url }}{{ site.baseurl }}/images/blog/2020-02-25/core_tenants.png" alt="">
 </figure>
 
-![Core Tenent]({{site.url}}/images/blog/2020-02-25/core_tenants.png )
+![Core Tenent]({{site.url}}/images/blog/2020-02-25/core_tenants.PNG)
 
-Image test
+Image test 2
