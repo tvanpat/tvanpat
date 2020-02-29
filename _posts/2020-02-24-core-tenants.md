@@ -29,7 +29,7 @@ This tenet is more focused to military customers.  As artificially intelligence 
 there is a fear among commanders that people will try to replace the analyst with an algorithm.  This
 concern is largely due to the cost of failure.  For example, if a spam filter mislabels an email there
 is little impact.  However, if a civilian vehicle is misclassified as a tank by an algorithm and a commander
-calls for a precision strike on the vehicle an incent person could be killed.  Granted this is an extreme
+calls for a precision strike on the vehicle an innocent person could be killed.  Granted this is an extreme
 example, but it does represent a mistrust in technology most commanders rightfully have.  The solutions
  provided will not replace the analyst in critical decisions, but rather will assist the analyst in handling
  the large amounts of data so the analyst can employ critical thinking.
