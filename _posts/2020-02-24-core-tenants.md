@@ -13,3 +13,7 @@ guide us and we began a project.
 <figure style="width: 30%" class="align-right">
   <img src="{{ site.url }}{{ site.baseurl }}/images/blog/2020-02-25/core_tenants.png" alt="">
 </figure>
+
+![Core Tenent]({{site.url}}/images/blog/2020-02-25/core_tenants.png )
+
+Image test
