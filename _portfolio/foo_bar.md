@@ -4,7 +4,7 @@ excerpt: "Relational Data Modeling with PostgreSQL: First project for the Udacit
 header:
   overlay_image:  " /images/port/data_model/data_erd.jpg"
   overlay_filter: 0.25
-  teaser: /images/port/data_model/postgresql_python.png
+  teaser: /images/port/data_model/postgresql_python_100.png
 
 ---
 
