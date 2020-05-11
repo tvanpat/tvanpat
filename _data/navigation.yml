@@ -6,9 +6,9 @@ main:
     url: /about/
   - title: "Blog Posts"
     url: /blog-posts/
-    
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+
+   - title: "Portfolio"
+     url: /portfolio/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
