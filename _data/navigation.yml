@@ -1,12 +1,12 @@
 # main links
 main:
-  - title: "Home"
+    - title: "Home"
     url: /index.html
-  - title: "About"
+    - title: "About"
     url: /about/
-  - title: "Blog Posts"
+    - title: "Blog Posts"
     url: /blog-posts/
- - title: "Portfolio"
+    - title: "Portfolio"
    url: /portfolio/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
