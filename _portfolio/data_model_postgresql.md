@@ -70,4 +70,4 @@ To enable fast returns on the analytic queries the project database desing used 
 
 The star schema database has five tables: **songplays**, **users**, **songs**, **artists**, and **time**.  The database ERD is shown below:
 
-<img src="/images/port/data_model/red.png" alt="Project ERD Diagram">
+<img src="/images/port/data_model/red.PNG" alt="Project ERD Diagram">
