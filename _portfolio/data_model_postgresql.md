@@ -33,3 +33,10 @@ The data schema for this JSON is:
 | title            | VARCHAR                    |
 | duration   | NUMERIC                   |
 | year  | INT                |
+
+<h3> Log Dataset</h3>
+In the Log Dataset each file contains one day's worth of user logs.  This log information is stored in a JSON Line format.  In a JSON line file each line is a valid JSON object; however this means the actual file itself cannot be treated as a JSON file.  To avoid errors while reading this file into Python it is recommend to use pandas with the following format:
+<pre><code>df = pd.read_json('<filename>.json', lines=True)</code></pre>
+
+A sample of this log data in a dataframe is shown below:
+<img src="/images/port/data_model/log-data_example.png" alt="Log File Example">
