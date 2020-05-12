@@ -71,3 +71,60 @@ To enable fast returns on the analytic queries the project database desing used 
 The star schema database has five tables: **songplays**, **users**, **songs**, **artists**, and **time**.  The database ERD is shown below:
 
 <img src="/images/port/data_model/erd.png" alt="Project ERD Diagram">
+
+The **time table** which contains:
+
+| Field        | Data Type          | Key  |
+ |-------------  | ------------- | ------------- |
+| start_time      | INT | Primary |
+| hour      | INT      |    |
+| day | INT      |     |
+| week | INT      |     |
+| month | INT      |     |
+| year | INT      |     |
+| weekday | INT      |     |
+
+The **users table** which contains:
+
+| Field        | Data Type          | Key  |
+| ------------- | ------------- |  ------------- |
+| user_id      | VARCHAR | Primary |
+| first_name      | VARCHAR      |    |
+| last_name | VARCHAR      |     |
+| gender | VARCHAR      |     |
+| level | VARCHAR     |     |
+
+The **songs table** which contains:
+
+| Field        | Data Type          | Key  |
+| ------------- | ------------- |  ------------- |
+| song_id      | VARCHAR | Primary |
+| title      | VARCHAR      |    |
+| artist_id | VARCHAR      |  Foreign Key   |
+| year | INT      |     |
+| duration | NUMERIC     |     |
+
+The **artists table** which contains:
+
+| Field        | Data Type          | Key  |
+| ------------- | ------------- |  ------------- |
+| artist_id      | VARCHAR | Primary |
+| name      | VARCHAR      |    |
+| location | VARCHAR      |  Foreign Key   |
+| latitude | real      |     |
+| longitude | real     |     |
+
+The **songplay table** which contains:
+
+| Field        | Data Type          | Key  |
+| ------------- | ------------- |  ------------- |
+| songplay_id      | INT | Primary |
+| start_time      | INT      |  Foreign Key  |
+| user_id | VARCHAR  |  Foreign Key   |
+| song_id | VARCHAR      |  Foreign Key   |
+| artist_id | VARCHAR     |  Foreign Key   |
+| session_id | INT  |     |
+| location | VARCHAR      |     |
+| user_agent | VARCHAR     |     |
+
+<h2> Project Process </h2>
