@@ -36,7 +36,38 @@ The data schema for this JSON is:
 
 <h3> Log Dataset</h3>
 In the Log Dataset each file contains one day's worth of user logs.  This log information is stored in a JSON Line format.  In a JSON line file each line is a valid JSON object; however this means the actual file itself cannot be treated as a JSON file.  To avoid errors while reading this file into Python it is recommend to use pandas with the following format:
+
 >df = pd.read_json('<filename>.json', lines=True)
 
 A sample of this log data in a dataframe is shown below:
 <img src="/images/port/data_model/log-data_example.png" alt="Log File Example">
+
+The data schema for the log dataset is:
+
+| Field           | Data Type          |
+ |-------------  | -------------         |
+| artist            | VARCHAR                   |
+| auth   | VARCHAR                   |
+| firstName  | VARCHAR                 |
+| gender            | VARCHAR                    |
+| itemInSession   | INT                   |
+| lastName   | VARCHAR                  |
+| length  | REAL                 |
+| level  | VARCHAR                 |
+| location            | VARCHAR                    |
+| method   | VARCHAR                   |
+| page  | VARCHAR                |
+| registration  | NUMERIC                |
+| sessionId  | INT                |
+| song  |  VARHCHAR                |
+| status  | INT                |
+| ts  | TIMESTAMP                |
+| userAgent  | VARCHAR                |
+| userId  | INT                |
+
+<h2> Final Database Schema </h2>
+To enable fast returns on the analytic queries the project database desing used a star schema.  By using the star schema the database will likely be fully 3NF, but the trade off is queries will return faster.  As the project dataset is small and the entries are being inserted via a python script the redunacy in the database will have little impact on the actual operation.
+
+The star schema database has five tables: **songplays**, **users**, **songs**, **artists**, and **time**.  The database ERD is shown below:
+
+<img src="/images/port/data_model/red.png" alt="Project ERD Diagram">
