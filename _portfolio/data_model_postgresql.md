@@ -13,7 +13,7 @@ This project is part of the Udacity Data Engineering Nanodegree.  This is the in
 <h2> Project Datasets </h2>
 There are two primary datasets for this project.  The Song Dataset is a subset of data from the [Millon Song Dataset](http://millionsongdataset.com/) and the Log Dataset which is simulated log data for the "Sparkify" company.  
 
-<h3 Song Dataset</h3>
+<h3> Song Dataset</h3>
 Each song is stored in a different JSON file.  An exmaple of the data reads as
 <pre><code>
 {"num_songs": 1, "artist_id": "ARJIE2Y1187B994AB7", "artist_latitude": null, "artist_longitude": null, "artist_location": "", "artist_name": "Line Renaud", "song_id": "SOUPIRU12A6D4FA1E1", "title": "Der Kleine Dompfaff", "duration": 152.92036, "year": 0}
