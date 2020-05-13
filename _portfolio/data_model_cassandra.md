@@ -1,6 +1,6 @@
 ---
-title: "Data Modeling with PostgreSQL"
-excerpt: "Relational Data Modeling with PostgreSQL: First project for the Udacity Data Engineering Nanodegree."
+title: "Data Modeling with Cassandra"
+excerpt: " Data Modeling with Cassandra: Second project for the Udacity Data Engineering Nanodegree."
 header:
   overlay_image:  images/port/cassandra_model/cassandra_banner.png
   overlay_filter: 0.5
