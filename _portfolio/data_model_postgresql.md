@@ -139,9 +139,13 @@ This project required the creation of the tables along with the insert queries f
 The following quires were conducted to ensure the data had been inserted into the the tables correctly.
 
 <strong>TOP FIVE USERS</strong>
+
 This query returned the top five users based upon instances.
+
 <img src="/images/port/data_model/top_5.png" alt="Top 5">
 
 <strong>Bottom Ten Locations</strong>
+
 This query returned the ten locations that has the lowest number of logged users.
+
 <img src="/images/port/data_model/bottom10.png" alt="Bottom 10">
