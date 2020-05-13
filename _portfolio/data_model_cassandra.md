@@ -92,6 +92,11 @@ In the Sparkify database there is a session for each time a user logs in and an 
 | userId  | INT                |  |
 
 
+Now when the query for what artist, song, length, and the location are quried for sessionId 338 and item in session 4 the following return is provided.
+
+<img src="/images/port/cassandra_model/query_1.png" alt="Query 1 Return">
+
+
 <h2> Project Process </h2>
 
 
