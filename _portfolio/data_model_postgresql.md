@@ -128,3 +128,20 @@ The **songplay table** which contains:
 | user_agent | VARCHAR     |     |
 
 <h2> Project Process </h2>
+This project required the creation of the tables along with the insert queries from the JSON data into the appropirate table.
+<ol>
+    <li>The **DROP TABLE** query was made for each of the tables.  This would ensure the table was deleted from the database before the same table was created.  This is important if any changes were made to the table design. </li>
+    <li>The **CREATE TABLE** query was used for each table and dicated the data type and any constraints such as Primary Key and Foreign Key. </li>
+        <li>Data was inserted for the tables. </li>
+</ol>
+
+<h2> Data Test </h2>
+The following quires were conducted to ensure the data had been inserted into the the tables correctly.
+
+**TOP FIVE USERS**
+This query returned the top five users based upon instances.
+<img src="/images/port/data_model/top_5.png" alt="Top 5">
+
+**Bottom Ten Locations**
+This query returned the ten locations that has the lowest number of logged users.
+<img src="/images/port/data_model/bottom10.png" alt="Bottom 10">
