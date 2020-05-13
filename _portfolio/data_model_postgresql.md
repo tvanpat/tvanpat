@@ -10,7 +10,7 @@ header:
 <h2> Project Background </h2>
 This project is part of the Udacity Data Engineering Nanodegree.  This is the introductary project after several classes on data modeling in a traditional SQL database.  For this project the student is to take on the role of a data engineer for a startup called Sparkify which is a music streaming app similar to Spotify.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
 
-The GitHub for this project is located here: [PostgreSQL-Data-Modeling](https://github.com/tvanpat/postgresql-data-modeling) 
+The GitHub for this project is located here: [PostgreSQL-Data-Modeling](https://github.com/tvanpat/postgresql-data-modeling)
 
 <h2> Project Datasets </h2>
 There are two primary datasets for this project.  The Song Dataset is a subset of data from the [Millon Song Dataset](http://millionsongdataset.com/) and the Log Dataset which is simulated log data for the "Sparkify" company.  
@@ -151,3 +151,8 @@ This query returned the top five users based upon instances.
 This query returned the ten locations that has the lowest number of logged users.
 
 <img src="/images/port/data_model/bottom10.png" alt="Bottom 10">
+
+<h2> Lessons Learned/Final Thoughts </h2>
+I have worked with SQL databases for many years and part of my Master's program involved an in depth class on relational theory and Oracle SQL databases, so the SQL basics of this class were not difficult.  Perhaps the thing I learned the most was to be willing to break away from third normal form when moving data from a record based system to an analtic based system.  While I am still not entirely comformatable with this the though the speed impacts are hard to argue against.  For me the key would be an automated process to ensure values are keeping some type of consistancy.  
+
+Overal this was a fun project and helped brush off the dust on my SQL skills.
