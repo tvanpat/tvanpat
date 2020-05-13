@@ -8,12 +8,13 @@ header:
 ---
 
 <h2> Project Background </h2>
-This project is part of the Udacity Data Engineering Nanodegree.  This is the introductary project after several classes on data modeling in a traditional SQL database.  For this project the student is to take on the role of a data engineer for a startup called Sparkify which is a music streaming app similar to Spotify.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
+This project is part of the Udacity Data Engineering Nanodegree.  This is the introductory project after several classes on data modeling in a traditional SQL database.  For this project the student is to take on the role of a data engineer for a startup called Sparkify which is a music streaming app similar to Spotify.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
 
 The GitHub for this project is located here: [PostgreSQL-Data-Modeling](https://github.com/tvanpat/postgresql-data-modeling)
 
 <h2> Project Datasets </h2>
-There are two primary datasets for this project.  The Song Dataset is a subset of data from the [Millon Song Dataset](http://millionsongdataset.com/) and the Log Dataset which is simulated log data for the "Sparkify" company.  
+There are two primary datasets for this project.  The Song Dataset is a subset of data from the [Million Song Dataset](http://millionsongdataset.com/) and the Log Dataset which is simulated log data for the "Sparkify" company.  
+
 
 <h3> Song Dataset</h3>
 Each song is stored in a different JSON file.  An exmaple of the data reads as
@@ -37,7 +38,7 @@ The data schema for this JSON is:
 | year  | INT                |
 
 <h3> Log Dataset</h3>
-In the Log Dataset each file contains one day's worth of user logs.  This log information is stored in a JSON Line format.  In a JSON line file each line is a valid JSON object; however this means the actual file itself cannot be treated as a JSON file.  To avoid errors while reading this file into Python it is recommend to use pandas with the following format:
+In the Log Dataset each file contains one day's worth of user logs.  This log information is stored in a JSON Line format.  In a JSON line file each line is a valid JSON object; however, this means the actual file itself cannot be treated as a JSON file.  To avoid errors while reading this file into Python it is recommend to use pandas with the following format:
 
 >df = pd.read_json('<filename>.json', lines=True)
 
@@ -68,7 +69,7 @@ The data schema for the log dataset is:
 | userId  | INT                |
 
 <h2> Final Database Schema </h2>
-To enable fast returns on the analytic queries the project database desing used a star schema.  By using the star schema the database will likely be fully 3NF, but the trade off is queries will return faster.  As the project dataset is small and the entries are being inserted via a python script the redunacy in the database will have little impact on the actual operation.
+To enable fast returns on the analytic queries the project database design used a star schema.  By using the star schema, the database will likely be fully 3NF, but the tradeoff is queries will return faster.  As the project dataset is small and the entries are being inserted via a python script the redundancy in the database will have little impact on the actual operation.
 
 The star schema database has five tables: **songplays**, **users**, **songs**, **artists**, and **time**.  The database ERD is shown below:
 
@@ -130,15 +131,16 @@ The **songplay table** which contains:
 | user_agent | VARCHAR     |     |
 
 <h2> Project Process </h2>
-This project required the creation of the tables along with the insert queries from the JSON data into the appropirate table.
+This project required the creation of the tables along with the insert queries from the JSON data into the appropriate table.
 <ol>
     <li>The <strong>DROP TABLE</strong> query was made for each of the tables.  This would ensure the table was deleted from the database before the same table was created.  This is important if any changes were made to the table design. </li>
-    <li>The <strong>CREATE TABLE</strong> query was used for each table and dicated the data type and any constraints such as Primary Key and Foreign Key. </li>
+    <li>The <strong>CREATE TABLE</strong> query was used for each table and dictated the data type and any constraints such as Primary Key and Foreign Key. </li>
         <li>Data was inserted for the tables. </li>
 </ol>
 
+
 <h2> Data Test </h2>
-The following quires were conducted to ensure the data had been inserted into the the tables correctly.
+The following quires were conducted to ensure the data had been inserted into the tables correctly.
 
 <strong>TOP FIVE USERS</strong>
 
@@ -153,6 +155,6 @@ This query returned the ten locations that has the lowest number of logged users
 <img src="/images/port/data_model/bottom10.png" alt="Bottom 10">
 
 <h2> Lessons Learned/Final Thoughts </h2>
-I have worked with SQL databases for many years and part of my Master's program involved an in depth class on relational theory and Oracle SQL databases, so the SQL basics of this class were not difficult.  Perhaps the thing I learned the most was to be willing to break away from third normal form when moving data from a record based system to an analtic based system.  While I am still not entirely comformatable with this the though the speed impacts are hard to argue against.  For me the key would be an automated process to ensure values are keeping some type of consistancy.  
+I have worked with SQL databases for many years and part of my Master's program involved an in-depth class on relational theory and Oracle SQL databases, so the SQL basics of this class were not difficult.  Perhaps the thing I learned the most was to be willing to break away from third normal form when moving data from a record-based system to an analytic based system.  While I am still not entirely comfortable with this the though the speed impacts are hard to argue against.  For me the key would be an automated process to ensure values are keeping some type of consistency.  
 
-Overal this was a fun project and helped brush off the dust on my SQL skills.
+Overall, this was a fun project and helped brush off the dust on my SQL skills.
