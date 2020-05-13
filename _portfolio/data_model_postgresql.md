@@ -10,6 +10,8 @@ header:
 <h2> Project Background </h2>
 This project is part of the Udacity Data Engineering Nanodegree.  This is the introductary project after several classes on data modeling in a traditional SQL database.  For this project the student is to take on the role of a data engineer for a startup called Sparkify which is a music streaming app similar to Spotify.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
 
+The GitHub for this project is located here: [PostgreSQL-Data-Modeling](https://github.com/tvanpat/postgresql-data-modeling) 
+
 <h2> Project Datasets </h2>
 There are two primary datasets for this project.  The Song Dataset is a subset of data from the [Millon Song Dataset](http://millionsongdataset.com/) and the Log Dataset which is simulated log data for the "Sparkify" company.  
 
