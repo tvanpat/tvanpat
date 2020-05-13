@@ -81,7 +81,7 @@ In the Sparkify database there is a session for each time a user logs in and an 
  |-------------  | -------------  | -------------  |
 | sessionId           |   INT               |  PRIMARY |
 | itemInSession   |   INT                |  PRIMARY |
-| artist  |                 | TEXT  |
+| artist  |    TEXT             |   |
 | song            | TEXT                    |  |
 | length   |  FLOAT                 |  |
 | firstName  |  TEXT                |  |
