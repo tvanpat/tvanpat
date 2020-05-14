@@ -37,7 +37,7 @@ as a senior intelligence advisor in both Afghanistan and Iraq.
 ### Familiar with
 - Apache Spark
 - Apache Airflow
-- Apache Caddandra
+- Apache Cassandra
 - NoSQL Document Database (MongoDB)
 - NoSQL Graph Database (Neo4j)
 - Linear Optimization (Gurobi Optimizer)
