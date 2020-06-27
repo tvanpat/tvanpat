@@ -188,31 +188,21 @@ The use tables are the **songplay_fact**, **time_dim**, **user_dim**, **song_dim
 <h2> Project Process </h2>
 This project while similar to the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/), the process for building and moving the data is different.  
 <ol>
-  <li>Using the <strong>aws_data_test.ipynb</strong> is used first to enter in the AWS credentials and start a Redshift cluster.  The file used to store the AWS credentials and some cluster information is stored in the <strong>dwh.cfg</strong>.  It is important to ensure the dwh.cfg file is added to the .gitignore file to avoid posting account credentials to a publis repository.</li>
+  <li>Using the <strong>aws_setup.ipynb</strong> is used first to enter in the AWS credentials and start a Redshift cluster.  The file used to store the AWS credentials and some cluster information is stored in the <strong>dwh.cfg</strong>.  It is important to ensure the dwh.cfg file is added to the .gitignore file to avoid posting account credentials to a public repository.</li>
   <li>Next the <strong>create_tables.py</strong>is run.  This file will create the staging tables along with the final database table and associated relationships.</li>
-  <li>fff </li>
+  <li>Once the tables have been built the etl.py file is run.  This file will:
+    <ul>
+    <li>Copy the JSON files from the s3 bucket to the staging tables</li>
+    <li>Insert the data from the staging tables into the correct table in the final database </li>
+    </ul>
+  </li>
+  <li>Ensure the data was correctly copied into the tables using the <strong>aws_data_test.ipynb</strong></li>
+  <li>If everything is correct the data and Redshift Clusters can be deleted using the last portion of the aws_setup.ipynb</li>
 </ol>
 
-
-
-
-
-<h2> Data Test </h2>
-The following quires were conducted to ensure the data had been inserted into the tables correctly.
-
-<strong>TOP FIVE USERS</strong>
-
-This query returned the top five users based upon instances.
-
-<img src="/images/port/data_model/top_5.png" alt="Top 5">
-
-<strong>Bottom Ten Locations</strong>
-
-This query returned the ten locations that has the lowest number of logged users.
-
-<img src="/images/port/data_model/bottom10.png" alt="Bottom 10">
-
 <h2> Lessons Learned/Final Thoughts </h2>
-I have worked with SQL databases for many years and part of my Master's program involved an in-depth class on relational theory and Oracle SQL databases, so the SQL basics of this class were not difficult.  Perhaps the thing I learned the most was to be willing to break away from third normal form when moving data from a record-based system to an analytic based system.  While I am still not entirely comfortable with this the though the speed impacts are hard to argue against.  For me the key would be an automated process to ensure values are keeping some type of consistency.  
+I learned a couple important lessons during this exercise.  The first is that your AWS credentials can be saved in your .ipynb_checkpoints file.  I learned this after a push to my GitHub repository, were in about 15 seconds I have several emails from GitHub and Amazon, along with Amazon calling my phone number.  There were several frantic minutes of removing tokens and deleting repositories.  All in all it was a valuable lesson, that thankfully didn't cost me anything but time.
 
-Overall, this was a fun project and helped brush off the dust on my SQL skills.
+The second part I really enjoyed was learning how to interact with AWS through pure code.  This is where the infrastructure as code concept really hit home for me.  Not only is this more convenient to start a cluster through some basic python code, it is also makes scaling infrastructure very easy.  Through a simple code change a cluster can be started and stopped and can even be done based on conditions set in an if statement.  This is a very powerful concept, and made me prioritize my learning of Docker, which I will discuss in a later blog post.
+
+This is where in the Udacity course I started to learn more concepts.  The use of s3 buckets, the use python to start and stop Redshift clusters, and staging tables.  These are all concepts I applied in my capstone project.  Overall this was a challenging project as I had to learn new concepts.  The easy part was moving the data from the staging table to the final database, the hard part was all the easy stuff before.  But that is the point of Data Engineering, to quickly and efficiently move data from one place to another.
