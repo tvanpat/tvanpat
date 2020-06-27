@@ -8,7 +8,7 @@ header:
 ---
 
 <h2> Project Background </h2>
-This project is part of the Udacity Data Engineering Nanodegree.  For this project the fictional company Sparkify has grown past the initial databases created in the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and now the company needs a more robust database to store the ever increasing data.  The goal of this project is to create a database inside of AWS Redshift and populate it from log files stored in an s3 Bucket.  This project also introduces the concept of infrastrure as code.  Part of the project entails creating a python script to launch a new AWS Redshift cluster.
+This project is part of the Udacity Data Engineering Nanodegree.  For this project the fictional company Sparkify has grown past the initial databases created in the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and now the company needs a more robust database to store the ever increasing data.  The goal of this project is to create a database inside of AWS Redshift and populate it from log files stored in an s3 Bucket.  This project also introduces the concept of infrastructure as code.  Part of the project entails creating a python script to launch a new AWS Redshift cluster.
 
 The GitHub for this project is located here: [Redshift-Data-Warehouse-Project](https://github.com/tvanpat/redshift-data-warehouse-project)
 
