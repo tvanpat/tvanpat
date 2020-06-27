@@ -120,9 +120,11 @@ author:
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/tyson-van-patten-5182b471"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+      icon: "fab fa-fw fa-gitlab"
       url: "https://github.com/tvanpat"
-
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      url: "https://gitlab.com/vp7799"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/descriptdata"

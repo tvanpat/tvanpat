@@ -42,7 +42,7 @@ In the Log Dataset each file contains one day's worth of user logs.  This log in
 
 >df = pd.read_json('<filename>.json', lines=True)
 
-A sample of this log data in a dataframe is shown below:
+A sample of this log data in a data frame is shown below:
 <img src="/images/port/data_model/log-data_example.png" alt="Log File Example">
 
 The data schema for the log dataset is:
@@ -70,13 +70,13 @@ The data schema for the log dataset is:
 
 
 <h2> Final Database Schema </h2>
-The big difference between typical SQL and Cassandra is how tables are designed.  In normal SQL you generally have one database structure and a varity of interconnected tables, with multiple queries being able to use this one database structure.  In Cassandra that paradigm is flipped.  For every query type there is one table.  The fields you wish to query against become the Primary Key.  There is still a need for unique keys in Cassandra; however, the primary difference is that in Cassandra when a duplicate primary key is inserted into the table, instead of an error the old data will just be overwritten with new data.  Therefore, it is critical to think though Primary Keys, Composite Keys, and Clustering Keys.
+The big difference between typical SQL and Cassandra is how tables are designed.  In normal SQL you generally have one database structure and a variety of interconnected tables, with multiple queries being able to use this one database structure.  In Cassandra that paradigm is flipped.  For every query type there is one table.  The fields you wish to query against become the Primary Key.  There is still a need for unique keys in Cassandra; however, the primary difference is that in Cassandra when a duplicate primary key is inserted into the table, instead of an error the old data will just be overwritten with new data.  Therefore, it is critical to think though Primary Keys, Composite Keys, and Clustering Keys.
 
 Below are examples of how a table is built around the desired query type.
 
 <h3>Query 1: Table that returns artist, song title, song length during a session and given a specific item in session.</h3>
 
-In the Sparkify database there is a session for each time a user logs in and an item in session for each song played while a user is logged into a single session.  When these two values are combined they create a unquie id which can be used for a composite key.  Unlike SQL, in Cassandra it is important to insert the data in order of use, the table below demonstrates the order in which to insert data.  
+In the Sparkify database there is a session for each time a user logs in and an item in session for each song played while a user is logged into a single session.  When these two values are combined they create a unique id which can be used for a composite key.  Unlike SQL, in Cassandra it is important to insert the data in order of use, the table below demonstrates the order in which to insert data.  
 
 | Field           | Data Type          | Key          |
  |-------------  | -------------  | -------------  |
@@ -122,7 +122,7 @@ Now when the table is queried for  the for the userId=10 and the sessionid=182 t
 
 <h3>Query 3: Create Table, which upon query will return the first and last name of a user who has listened to a song.</h3>
 
-For this table the primary key will be songId and the userId.  The songId is the will be queried against, but to make it unquie the userId needs to be added to make it a composite key, as such they were designated as the Primary Key. The remaining fields were created in order based upon their usage. For example, the query given asks to return the artist, song title, and user, these are created after the Primary Key fields of sessionID and itemInSession.  The data model for the table and the order in which the data is inserted into the table is below.
+For this table the primary key will be songId and the userId.  The songId is the will be queried against, but to make it unique the userId needs to be added to make it a composite key, as such they were designated as the Primary Key. The remaining fields were created in order based upon their usage. For example, the query given asks to return the artist, song title, and user, these are created after the Primary Key fields of sessionID and itemInSession.  The data model for the table and the order in which the data is inserted into the table is below.
 
 | Field           | Data Type          | Key          |
  |-------------  | -------------  | -------------  |
