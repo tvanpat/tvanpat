@@ -10,6 +10,8 @@ header:
 <h2> Project Background </h2>
 This project is part of the Udacity Data Engineering nano-degree.  As such it will follow a similar style as [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and [Data Warehouse Project](https://www.descriptdata.com/portfolio/data_warehouse_redshift/) in that the company Sparkify is rapid gowning and need a data system which can support the analytical needs of their staff.  The Sparkify team started with PostgreSQL and then moved to Redshift and now wants to use Spark.
 
+The GitHub for this project is located here: [Data-Lake-With-AWS](https://github.com/tvanpat/data-lake-with-aws)
+
 <h2> Datasets </h2>
 As with the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and [Data Warehouse Project](https://www.descriptdata.com/portfolio/data_warehouse_redshift/) there are two primary datasets, the <strong>Song Dataset</strong> and the <strong>Log Dataset</strong>
 
