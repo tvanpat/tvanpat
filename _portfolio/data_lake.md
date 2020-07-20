@@ -1,6 +1,6 @@
 ---
 title: "Data Lakes with Spark"
-excerpt: "Constructing an ETL pipeline from s3 to AWS Spark."
+excerpt: "Constructing an ETL pipeline from s3 to AWS Spark for the Udacity Data Engineering Nanodegree."
 header:
   overlay_image:  images/port/spark/AWS-Main-banner.jpg
   overlay_filter: 0

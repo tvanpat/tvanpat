@@ -1,6 +1,6 @@
 ---
 title: "Workflows with Apache Airflow"
-excerpt: "Automating ETL workflows with Apache Airflow."
+excerpt: "Automating ETL workflows with Apache Airflow for the Udacity Data Engineering Nanodegree."
 header:
   overlay_image:  images/port/airflow/airflow_banner.jpg
   overlay_filter: .25

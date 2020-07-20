@@ -179,9 +179,315 @@ This project incorporated tools from both the Udacity course as well as other AW
 
 <strong>AWS Apache Airflow:</strong> Airflow was used to monitor and manage some of the data transformation workflows for this project.
 
+<h2> Final Database Schema </h2>
+
+The data model used is a simple star data model.  This data model works well as it is easy to query with quick speeds.  The table has not been taken to 3NF, while this increases redudancy it will result in faster return times on queries.  Once the data has been preprocessed and placed in the correct s3 folder it can be copied into the the staging table.  From the staging tables it will be inserted into the correct fact and dimension tables.
+
+The mapping for S3 folder to staging table to fact or dim table is as follows:
+
+s3://nfl-cap/coaches >> coaches_staging >> coaches_dim
+
+s3://nfl-cap/gameinfo >> gameinfo_staging >> game_dim
+
+s3://nfl-cap/schedules_details >> schedules_details_staging >> game_dim
+
+s3://nfl-cap/gameplays >> gameplays_staging >> play_fact
+
+s3://nfl-cap/player_info >> player_info_staging >> players_dim
+
+s3://nfl-cap/statids/ >> statid_codes_staging >> statid_dim
+
+s3://nfl-cap/teams >> team_staging >> team_dim
+
+<h3>Staging Tables </h3>
+
+There are seven staging tables for this project.  They can be seen in this <a href= "https://github.com/tvanpat/udacity_data_eng_capstone_nfl_data/blob/master/assets/Staging%20Tables.pdf">PDF</a>
+
+<strong> Coaches Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| coach_id     | varchar                        |
+| season         | int                        |
+| week                 | varchar                        |
+| display_name   | varchar                        |
+| first_name   | varchar                        |
+| last_name   | varchar                        |
+| esbid   | varchar                        |
+| status   | varchar                        |
+| birthdate   | date                        |
+| hometown   | varchar                        |
+| collge   | varchar                        |
+| team_id   | varchar                        |
+| isdeceased   | varchar                        |
+| pic_url   | varchar                        |
+
+<strong> Game Info Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| game_id     | varchar                        |
+| season         | int                        |
+| season_type                 | varchar                        |
+| week   | varchar                        |
+| game_key   | varchar                        |
+| game_date   | date                        |
+| game_time_iso   | timestamp                        |
+| vis_points_total   | int                        |
+| vis_points_q1   | int                        |
+| vis_points_q2   | int                        |
+| vis_points_q3   | int                        |
+| vis_points_q4   | int                        |
+| vis_points_ot   | int                        |
+| home_points_total   | int                        |
+| home_points_q1   | int                        |
+| home_points_q2   | int                        |
+| home_points_q3   | int                        |
+| home_points_q4   | int                        |
+| home_points_ot   | int                        |
+| win_team  | varchar                        |
+|  lose_team | varchar                        |
+| site_id  | varchar                        |
+| site_city  | varchar                        |
+| site_full_name  | varchar                        |
+| site_state  | varchar                        |
+| roof_type   | varchar                        |
+| phase  | varchar                        |
+
+<strong> Game Plays Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| game_id     | varchar                        |
+| week         | varchar                        |
+| drive_seq                 | varchar                        |
+| play_id   | varchar                        |
+| play_stat_id   | varchar                        |
+| season   | int                        |
+| home_team   | varchar                        |
+| def_team   | varchar                        |
+| off_team   | varchar                        |
+| vis_team   | varchar                        |
+| penalty   | varchar                        |
+| scoring   | varchar                        |
+| scoring_team   | varchar                        |
+| play_type   | varchar                        |
+| quarter   | varchar                        |
+| down   | int                        |
+| yard_to_go   | numeric                        |
+| first_down   | varchar                        |
+| play_descript   varchar                        |
+| play_vid  | varchar                        |
+|  stat_id | varchar                        |
+| yards  | int                        |
+| player_id  | varchar                        |
+| player_team  | varchar                        |
+
+<strong> Player Info Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| nfl_id     | varchar                        |
+| esb_id         | varchar                        |
+| gsis_id                 | varchar                        |
+| status   | varchar                        |
+| display_name   | varchar                        |
+| first_name   | varchar                        |
+| last_name   | varchar                        |
+| middle_name   | varchar                        |
+| suffix   | varchar                        |
+| birth_date   | date                        |
+| home_town   | varchar                        |
+| college_id   | varchar                        |
+| college_name   | varchar                        |
+| position_group   | varchar                        |
+| position   | varchar                        |
+| jersey_number   | varchar                        |
+| height   | int                        |
+| weight   | int                        |
+| current_team   | varchar                        |
+| player_pic_url   | varchar                        |
+
+<strong> Statid Code Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| stat_id     | varchar                        |
+| name         | varchar                        |
+| comment                 | varchar                        |
+
+<strong> Schedule Details Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| game_id     | varchar                        |
+| season         | int                       |
+| season_type                 | varchar                        |
+| week     | varchar                        |
+| game_key         | varchar                        |
+| home_id                 | varchar                        |
+| vis_id     | varchar                        |
+| game_type         | varchar                        |
+| week_name_abbr                 | varchar                        |
+| week_name                 | varchar                        |
+
+<strong> Team Staging Table</strong>
+
+| Field           | Data Type          |
+ |-------------  | ------------------- |
+| team_id     | varchar                        |
+| season         | int                       |
+| abbr                 | varchar                        |
+| citystate     | varchar                        |
+| full_name         | varchar                        |
+| nick                 | varchar                        |
+| team_type     | varchar                        |
+| conference_abbr         | varchar                        |
+| division_abbr                 | varchar                        |
+| year_found                 | int                        |
+| stadium_name                 | varchar                        |
+
+<h3>Fact and Dim Tables </h3>
+There are five dimension tables and 1 fact table.  They can be seen in this <a href= "https://github.com/tvanpat/udacity_data_eng_capstone_nfl_data/blob/master/assets/Fact_Dim_Table%20ERD.pdf ">PDF</a>
+
+<strong> Coaches Dim Table</strong>
+
+| Field           | Data Type          | Key          |
+ |-------------  | ------------------- | ------------------- |
+| coach_id     | varchar  | PRIMARY |
+| season         | int     | PRIMARY |
+| week     | varchar   | PRIMARY|
+| display_name     | varchar   | |
+| full_name   | varchar    | |
+| last_name    | varchar    | |
+| esbid     | varchar    | |
+| birthdate    | date     | |
+| hometown    | varchar   | |
+| college   | int    | |
+| team_id   | varchar  | |
+| isdeceased   | varchar  | |
+| pic_url   | varchar  | |
+
+<strong> Players Dim Table</strong>
+
+| Field           | Data Type          | Key          |
+ |-------------  | ------------------- | ------------------- |
+| nflid     | varchar  | PRIMARY |
+| esbid         | varchar     |  |
+| gsisid     | varchar   | |
+| status     | varchar   | |
+| display_name   | varchar    | |
+| first_name    | varchar    | |
+| last_name     | varchar    | |
+| middle_name    | date     | |
+| suffix    | varchar   | |
+| birthdate   | date    | |
+| hometown   | varchar  | |
+| college_id   | varchar  | |
+| college   | varchar  | |
+| position_group   | varchar  | |
+| position   | varchar  | |
+| jersey_number   | varchar  | |
+| height   | int  | |
+| weight   | int  | |
+| current_team   | varchar  | |
+| player_pic_url   | varchar  | |
+
+<strong> Game Dim Table</strong>
+
+| Field           | Data Type          | Key          |
+ |-------------  | ------------------- | ------------------- |
+| game_id     | varchar                        | PRIMARY |
+| season         | int                        | |
+| season_type                 | varchar                        | |
+| week   | varchar                        | |
+| game_key   | varchar                        | |
+| game_date   | date                        | |
+| game_time_iso   | timestamp                        | |
+| vis_points_total   | int                        | |
+| vis_points_q1   | int                        | |
+| vis_points_q2   | int                        | |
+| vis_points_q3   | int                        | |
+| vis_points_q4   | int                        | |
+| vis_points_ot   | int                        | |
+| home_points_total   | int                        | |
+| home_points_q1   | int                        | |
+| home_points_q2   | int                        | |
+| home_points_q3   | int                        | |
+| home_points_q4   | int                        | |
+| home_points_ot   | int                        | |
+| win_team  | varchar                        | |
+|  lose_team | varchar                        | |
+| site_id  | varchar                        | |
+| site_city  | varchar                        | |
+| site_full_name  | varchar                        | |
+| site_state  | varchar                        | |
+| roof_type   | varchar                        | |
+| game_phase  | varchar                        | |
+| week_name_abbr  | varchar                        | |
+| week_name  | varchar                        | |
+| game_type  | varchar                        | |
+| home_id   | varchar                        | |
+| away_id  | varchar                        | |
+
+<strong> Team Dim Table</strong>
+
+| Field           | Data Type          | Key          |
+ |-------------  | ------------------- | ------------------- |
+| team_id     | varchar                        | PRIMARY |
+| season         | int                       | |
+| abbr                 | varchar                        | |
+| citystate     | varchar                        | |
+| full_name         | varchar                        | |
+| nick                 | varchar                    |     |
+| team_type     | varchar                        | |
+| conference_abbr         | varchar                        | |
+| division_abbr                 | varchar                        | |
+| year_found                 | int                        | |
+| stadium_name                 | varchar                        | |
+
+<strong> Stat ID Dim Table</strong>
+
+| Field           | Data Type          | Key          |
+ |-------------  | ------------------- | ------------------- |
+| stat_id     | varchar                        | PRIMARY |
+| name         | int                       | |
+| comment                 | varchar                        | |
+
+<strong> Play Fact Table</strong>
+
+| Field           | Data Type          | KEY |
+ |-------------  | ------------------- | ------------------- |
+ | guid     | sequence                       |  PRIMARY|
+| game_id     | varchar                        |  |
+| week         | varchar                        |  |
+| drive_seq                 | varchar                        |  |
+| play_id   | varchar                        |  |
+| play_stat_id   | varchar                        |  |
+| season   | int                        |  |
+| home_team   | varchar                        |  |
+| def_team   | varchar                        |  |
+| off_team   | varchar                        |  |
+| vis_team   | varchar                        |  |
+| penalty   | varchar                        |  |
+| scoring   | varchar                        |  |
+| scoring_team   | varchar                        |  |
+| play_type   | varchar                        |  |
+| quarter   | varchar                        |  |
+| down   | int                        |  |
+| yard_to_go   | numeric                        |  |
+| first_down   | varchar                        |  |
+| play_descript  | varchar                        |  |
+| play_vid  | varchar                        |  |
+|  stat_id | varchar                        |  |
+| yards  | int                        |  |
+| player_id  | varchar                        |  |
+| player_team  | varchar                        |  |
+
+
 <h2>Project Process</h2>
 
-<h2> Final Database Schema </h2>
+
 
 
 <h2> Lessons Learned/Final Thoughts </h2>
