@@ -487,10 +487,46 @@ There are five dimension tables and 1 fact table.  They can be seen in this <a h
 
 <h2>Project Process</h2>
 
+There are two primary problems with this dataset. The first is gathering the data and the second is the primary dataset called games is a heavily nested json document and will require preprocessing before it can be loaded into a staging table. To gather a all the required json files the following process was used.
+
+<img src="/images/port/capstone/data_preprocess.PNG" alt="Data Preprocess">
+
+<h3> Step 1</h3>
+ The data gathering process is initiated with a python script where the user enters in the season of the NFL data they want to enter into the database.  The script code can be viewed in the access_raw_data Jupyter notebook.  This script will execute four function functions
+
+- The script will go to https://www.nfl.com/feeds-rs/schedules/<season>.json and do the following:
+    - Save each Game ID as a separate JSON in s3
+    - Save Game detailed information in s3
+
+- For each team in the NFL schedule for that season the script will go to https://www.nfl.com/feeds-rs/teams/<season_to_get>.json and get detailed information for each team for the season selected.  Each team will be saved as a separate json in s3.
+
+- For each team in the NFL schedule the script will go to https://www.nfl.com/feeds-rs/coach/byTeam/<team_id>/<season>.json and save a json file for each coach for each season.  The json file is saved by team, season, week.  If the script is run on a weekly basis it will be able to log coaching changes that occur during the regular season.
+
+
+<h3> Step 2</h3>
+The time to process a single season, deconstruct each game file save each play stat and player json file could easily take over an hour.  By using AWS Lambda this time can be reduced to minutes.  For step 2 for each gameid saved in s3 will start an AWS process which will download the complete game json and save it in another s3 bucket.  The only downside to this is each s3 prefix can only have one lambda trigger.  Also Lambda functions can run for a maximum of 15 minutes, so it is a best practice to keep Lambda functions simple.  It takes less than 30 seconds for Lambda to open each json file and download the game file and save it in the correct s3 folder.  The code for this Lambda function is saved in the lambda_functions folder under the name gameids.py.
+
+<h3> Step 3</h3>
+For each full game saved in s3, Lambda will launch and deconstruct each game saving each play stat as a separate json file in s3.  This function will execute a second task of saving each player from the game as a single json document in a separate json document.  The code for this function can be viewed in the lambda_functions folder under the name gamesheet_decon.py.
+
+<h3> Step 4</h3>
+For each Player ID saved Lambda will save the Player json file into an s3 bucket in a format that is ready to load into the Redshift staging table.
+
+<h3> Step 5</h3>
+Once the initial data transformation from has taken place and the de-nested json files are in the staging s3 buckets, the process can be started in Apache Airflow.  The data will be copied from s3 into the Redshift staging tables.
+
+<h3> Step 6</h3>
+Once the data has been moved from each bucket to the appropriate staging table, the staging tables will begin to populate the fact and dimension tables.  
+
+<h3> Step 7</h3>
+After all the staging tables have populated the fact and dimension tables a data quality check is conducted, and Airlow will stop the process.
+
+<img src="/images/port/capstone/dag_chart.PNG" alt="DAG Chart">
 
 
 
 <h2> Lessons Learned/Final Thoughts </h2>
-I have worked with SQL databases for many years and part of my Master's program involved an in-depth class on relational theory and Oracle SQL databases, so the SQL basics of this class were not difficult.  Perhaps the thing I learned the most was to be willing to break away from third normal form when moving data from a record-based system to an analytic based system.  While I am still not entirely comfortable with this the though the speed impacts are hard to argue against.  For me the key would be an automated process to ensure values are keeping some type of consistency.  
+The goal of this project was to build a database from NFL endpoints. This database will allow people to conduct queries on players, teams, and coaches performances. This can be used by NFL fans as well as those who play fantasy football to help plan their team and track potential points.
+The primary tools for this project were Python, AWS Lambda, AWS s3, AWS Redshift, and Airflow. AWS Lambda was used to help preprocess data that could take hours if done sequentially, by using Lambda this data preprocessing was reduced to minutes. AWS s3 storage was used for the json files as the storage is cheap and easily connects to AWS Lambda and Redshift. AWS Redshift was used to store the data. By using a column store distributed database, data should be readily available and returned quickly. By using Airflow the ability to schedule the transfer of the data from S3 to staging tables and finally to the dimension and fact tables.
 
-Overall, this was a fun project and helped brush off the dust on my SQL skills.
+For me this project is bittersweet.  After working with the NFL data for about a year, I finally found a way to easily move the data into a database which allowed for aggregate analysis only for the NFL to stop public access to the endpoints.  This project allowed me to incorporate all the tools I had used during the Udacity course.  Overall this was a challenging and fun capstone and I am glad I did not use the datasets provided by Udacity.
