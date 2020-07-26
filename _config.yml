@@ -125,7 +125,7 @@ author:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       url: "https://gitlab.com/vp7799"
-    - label: "Docker Hub"
+    - label: "docker hub"
       icon: "fab fa-fw fa-docker"
       url: "https://hub.docker.com/u/vp7799"
     - label: "Twitter"
