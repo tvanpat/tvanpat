@@ -118,19 +118,19 @@ author:
       # url: mailto:your.name@email.com
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/tyson-van-patten-5182b471"
+      url: "https://www.linkedin.com/in/tvanpat"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/tvanpat"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
-      url: "https://gitlab.com/vp7799"
+      url: "https://gitlab.com/tvanpat"
     - label: "docker hub"
       icon: "fab fa-fw fa-docker"
-      url: "https://hub.docker.com/u/vp7799"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/descriptdata"
+      url: "https://hub.docker.com/u/tvanpat"
+    - label: "kaggle"
+      icon: "fab fa-fw fa-kaggle"
+      url: "https://www.kaggle.com/vp7799"
 
 
 
