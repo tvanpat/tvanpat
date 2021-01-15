@@ -6,8 +6,16 @@ excerpt: "A quick and easy way to establish folder structure for a ML training a
 ---
 
 <H2>Project Overview</H2>
-This is the first article in a series which will explore how to build a simple model, deploy it using FastAPI, log model performance, and use the model logs to test and build model updates.  For the project the model will use the "Hello World" of data science projects, the Titanic Dataset from Kaggle.  The first part will discuss how to establish the project folder.  The second part will focus on how to use the project folder to build the initial baseline model.  The third article will examine how to deploy the baseline model using FastAPI.  The fourth part will discuss the importance of logging model predictions and user interactions.  The last article will use the logging abilities to test and improve the baseline model using a rendezvous architecture.
+This is the first article in a series which will explore how to build a simple model, deploy it using FastAPI, log model performance, and use the model logs to test and build model updates.  For the project the model will use the "Hello World" of data science projects, the Titanic Dataset from Kaggle.  This project will be divided into several parts:
 
+<ol>
+<li>The first part will discuss how to establish the project folder.</li>
+<li>The second part will focus on how to use the project folder to build the initial baseline model.</li>
+<li>The third article will examine how to deploy the baseline model using FastAPI.</li>
+<li>The fourth part will discuss the importance of logging model predictions and user interactions.</li>
+<li>The last article will use the logging abilities to test and improve the baseline model using a rendezvous architecture.</li>
+</ol>
+    
 <H2>Establishing a Project Folder</H2>
 It took some work and but I found a project structure that could be used as a baseline for many projects.  By using this project structure I can build, train, and deploy a model from a single repository.
 
