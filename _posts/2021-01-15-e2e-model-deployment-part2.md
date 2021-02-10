@@ -10,7 +10,7 @@ This second portion of the project will focus on the actual baseline model devel
 
 
 <H2>Using the Notebook Folder</H2>
-Most of the work for this portion of the project will be completed in the notebook folder.  In this folder there are 6 [notebooks](https://gitlab.com/tvanpat/e2e-titanic/-/tree/master/notebooks):
+Most of the work for this portion of the project will be completed in the notebook folder.  In this folder there are 6 <a href="https://gitlab.com/tvanpat/e2e-titanic/-/tree/master/notebooks" target="_blank" rel="noopener noreferrer">notebooks</a>
 
 <ol>
 <li>01_eda.ipynb</li>
@@ -21,41 +21,34 @@ Most of the work for this portion of the project will be completed in the notebo
 <li>workbench.ipynb</li>
 </ol>
 
-<H3>01_eda.ipynb</H3>
-The purpose of the EDA notebook is to have a centralized location to conduct exploratory data analysis.  This notebook should be written in a way where any person could open it and follow the EDA process.
+<H3><a href="https://gitlab.com/tvanpat/e2e-titanic/-/blob/master/notebooks/01_eda.ipynb" target="_blank" rel="noopener noreferrer">01_eda.ipynb</a></H3>
+The purpose of the EDA notebook is to have a centralized location to conduct exploratory data analysis.  This notebook should be written in a way where any person could open it and follow the EDA process.  
 
-<H3>02_data_imputation_model_build.ipynb</H3>
+As the purpose of this project is to show how to build an end to end ML solution, I am not going to go very deep into my EDA.  This is mainly because I want to build a baseline model and deploy it.  I will come back in a later article to discuss how to read the EDA and some of the implications the data ratios will have on the model and how to normalize the data.  
+
+<H3><a href="https://gitlab.com/tvanpat/e2e-titanic/-/blob/master/notebooks/02_data_imputation_model_build.ipynb" target="_blank" rel="noopener noreferrer">02_data_imputation_model_build.ipynb</a></H3>
 After EDA is complete it maybe required to impune data into missing features.  These features can be explored in the data_imputation notebook and methods impune can be explored.  If a function is created to impune data it should be saved in the data_pre.py file in the src/app/modules folder.  In the case of this project a ML model was created to impune the value of some missing features.  These models were trained in this notebook with the actual model being saved in the src/app/assets/models/data_preprocessing_models folder.
 
-<H3>03_data_preprocessing_final.ipynb</H3>
+The purpose of this data imputation model notebook is not to impute the data, but rather to build the modules used for data imputation which will be employed in the data preprocessing notebook.  Within the Titanic dataset there were several missing data points in important features such as age.  This notebook builds several methods of imputation which will be used in the model training.  The concept is to use various methods of imputation and see which model and which imputation method provides the best results.  For the age feature two different linear models one deterministic and one stochastic.  This is the notebook where these models were trained, and then saved in the models folder.
+
+<H3><a href="https://gitlab.com/tvanpat/e2e-titanic/-/blob/master/notebooks/03_data_preprocessing_final.ipynb" target="_blank" rel="noopener noreferrer">03_data_preprocessing_final.ipynb</a></H3>
 Once the modules and modules are built for the data preprocessing the training data is preprocessed in the data_preprocessing notebook.  This notebook is built with the mentality that any person should be able to open this notebook and process the training data.  To accomplish this I used a .pipe to create a data preprocessing pipeline, so the entire process can be accomplished in one click.
 
-<H3>4_model_training.ipynb</H3>
+<H3><a href="https://gitlab.com/tvanpat/e2e-titanic/-/blob/master/notebooks/04_model_training.ipynb" target="_blank" rel="noopener noreferrer">04_model_training.ipynb</a></H3>
 The model training notebook takes in the preprocessed training data and is used to create the baseline model.  By using the Scikit-learn Pipeline module several different model type and feature selections can be tested at once.  Once the baseline model is selected it is saved in the src/app/assets/models/current_modules folder.
 
-<H3>05_kaggle_validation.ipynb</H3>
-As this data came from a Kaggle competition this is where I processed the kaggle validation data.  Typically this notebook is not required, but helps to demonstrate this structure is flexible to the needs of a project.
+For the baseline model the data was loaded.  This data was split between training and test data sets.  Then using sklearn pipelines and a for loop this several different models were trained against different feature selections.  The models trained and tested were a Naive Bayes Gaussian Classifier, Stochastic Gradient Descent Classifier, K-Nearest Neighbors Classifier, Decision Tree Classifier, Random Forest Classifer, Support Vector Classifier, and a Gradient Boosting Classifier.  The model with the best performance was the Gradient Boosting Classifier.  This model was saved as the baseline model.  In future articles I will discuss how to improve logically and systematically make model adjustments and compare them to the baseline model and even deploy new models into a rendezvous architecture.
+
+<H3><a href="https://gitlab.com/tvanpat/e2e-titanic/-/blob/master/notebooks/05_kaggle_validation.ipynb" target="_blank" rel="noopener noreferrer">05_kaggle_validation.ipynb</a></H3>
+As this data came from a Kaggle competition this is where I processed the kaggle validation data.  Typically this notebook is not required, but helps to demonstrate this structure is flexible to the needs of a project.  This notebook could easily be renamed and used to validate a model if there is enough data to create a validation set.  For this project I used the model API created to run the Kaggle validation set and create the csv for entry into the Titanic contest.  
 
 <H3>workbench.ipynb</H3>
-THis last notebook is used to prototype code or work on modules without disrupting the work in another notebook.
-
-<H2>Exploratory Data Analysis</H2>
-
-<H2>Data Imputation</H2>
-
-<H2>Data Preprocessing</H2>
-
-<H2>Model Training</H2>
+This last notebook is used to prototype code or work on modules without disrupting the work in another notebook.
 
 <H2>Kaggle Validation</H2>
+My Gradient Boosting Classifier using a determinist linear model for age imputation scored a 84% accuracy against my test set.  The same model scored against the Kaggle Validation set scored at 77.90% accuracy, which placed me in the top 23% of the models.  The results can be viewed <a href="https://www.kaggle.com/vp7799" target="_blank" rel="noopener noreferrer">Kaggle Results</a>.  
 
 <H2>Conclusion</H2>
+Far too often in model development this is the final step for the data scientist.  I think this is very short sighted.  The data scientist still has a responsibility to ensure the model is deployed accurately, to monitor model performance, and to update the model with better performing models and account for model drift.  I am glad that is started this project as it has continuously made me think and rethink how to develop models that can be easily deployed as well as a model where another person can continue development if the primary person leaves the project.  
 
-<ol>
-<li>Go to desired location and git init a new repository</li>
-<li>wget https://github.com/tvanpat/ds_api_shell/ds_shell.sh</li>
-<li>Read the script to ensure it does not contain dangerous information</li>
-<li>sudo bash ds_shell.sh OR chmod +x ds_shell.sh && sudo ./ds_shell.sh</li>
-</ol>
-
-This was written for use on a linux system; however, if you have [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and are using [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/) you can execute the shell script in Windows 10.
+So two parts of the project down, three more to go.
