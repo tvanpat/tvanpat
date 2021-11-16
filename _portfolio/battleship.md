@@ -31,7 +31,7 @@ Each of the five ships takes up a different footprint on the map.
 
 Each player will place all ships on their grid. Ship may touch but not overlap. 
 
-<img src="/images/port/battleship/board_with_ship.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/board_with_ship.png" alt="Board With Ships" width="357" height="313">
 
 Players will take turns calling our map positions where they think the other player might have placed their ships. The second player will say Hit or Miss, if a hit results in a ship sinking the player will respond with you sunk my "ship name here". The first player to sink all the enemy ships wins.
 
@@ -45,24 +45,24 @@ At level 1 the computer will randomly shoot at any space that has not been fired
 
 Perhaps the key benefit of this level is it is really fast. It the computer will check a dictionary which contains a log of hits and misses and then randomly choose a grid location that has not been shot at. To play a 1000 games in order it takes about 3.4 seconds.
 
-<img src="/images/port/battleship/random.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/random.png" alt="Board With Ships" width="357" height="313">
 
 <h3> Level 2 - Random With Hunt Mode </h3>
 This level starts with taking random shots, until the computer hits an enemy ship. When this happens the computer goes into "Hunt Mode". After the computer registers a hit, it will save the hit location. On the next shot the computer will check the space to the north of the hit. If the space is empty the computer will shoot at that location.
 
-<img src="/images/port/battleship/random_hunt_shot_1.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/random_hunt_shot_1.png" alt="Board With Ships" width="357" height="313">
 
 If the space to the north is listed as a miss the computer will check the space to the east of the original hit. Then the south and then the west until there is a Hit.
 
-<img src="/images/port/battleship/random_hunt_shot_2.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/random_hunt_shot_2.png" alt="Board With Ships" width="357" height="313">
 
 Once a hit is registered the computer will then advance one square in the direction of the hit and shoot at that location. The computer will continue in hunt mode until a ship is sunk.
 
-<img src="/images/port/battleship/random_hunt_shot_3.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/random_hunt_shot_3.png" alt="Board With Ships" width="357" height="313">
 
 Currently the only problem with hunt mode is it is suspectable to ship stacking, where two ships are placed next to each other. When this happens the computer will follow the path of the second ship until the second ship is sunk. Once the ship is sunk the computer will leave hunt mode with the original ship still afloat.
 
-<img src="/images/port/battleship/random_hunt_shot_4.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/random_hunt_shot_4.png" alt="Board With Ships" width="357" height="313">
 
 The level is also fairly fast. For the majority of shots it uses the same method as above to determine the next likely shot. Even when the computer is in "Hunt Mode" it is still just a series of look ups. There is minimal calculations taking place and there for it runs very fast. To play 1000 games in order it takes the computer about 1.98 seconds. As demonstrated in the analysis portion, this reduced time is because the games in level 2 are about 30 moves shorter than games played on level 1.
 
@@ -70,26 +70,26 @@ The level is also fairly fast. For the majority of shots it uses the same method
 
 In parity mode the computer will shoot at every other square. For example the row "A" the computer will shoot at the odd columns (1,3,5,7,9), and on the "B" row the computer will shoot at the even columns (2,4,6,8,10). The computer will choose these locations randomly, and once a hit is scored the computer will enter into "Hunt Mode".
 
-<img src="/images/port/battleship/parity_mode.PNG" alt="Board With Ships" width="357" height="313">
+<img src="/images/port/battleship/parity_mode.png" alt="Board With Ships" width="357" height="313">
 
 At this point the games are taking longer to be played due to some of the calculations that need to occur. For 1000 games to be played on level 3 it takes 5.4 seconds. The calculations for this level are pretty light, but the cost of calculations is already starting to show.
 
 <h3> Level 4 - Probability Mode </h3>
 Ok first off this is not really a probability but more of a possibility. For each cell of the board the computer will calculate the number of ways a ship can possibly occupy that space. Starting with the Carrier and Cell "A:1". There are only two ways the Carrier can occupy this cell, so for this cell for the Carrier the value is two. 
 
-<img src="/images/port/battleship/poss_example_1.PNG" alt="Board With Ships" width="600" height="526">
+<img src="/images/port/battleship/poss_example_1.png" alt="Board With Ships" width="600" height="526">
 
 This process is repeated for each ship type and the number of possibilities is added. So at the start of the game the value of cell "A:1" is 10 and the value of cell "E:5" is 34. As there are more ways to place a ship that will land on E:5 as opposed to A:1, the shot with the best chance of hitting a ship is to shoot at E:5. When there are multiple cells with the same possibility number such as E:5, E:6, F:5, and F:6, the computer will randomly choose one of the highest ranking cells to shoot at.
 
-<img src="/images/port/battleship/poss_example_2.PNG" alt="Board With Ships" width="600" height="526">
+<img src="/images/port/battleship/poss_example_2.png" alt="Board With Ships" width="600" height="526">
 
 After each shot the probability board will recalculate. Misses on the board will result in the cell being treated as a zero and will effect the cells around in. For example, this is the board after shooting at E:5 which is a miss.
 
-<img src="/images/port/battleship/poss_example_3.PNG" alt="Board With Ships" width="600" height="526">
+<img src="/images/port/battleship/poss_example_3.png" alt="Board With Ships" width="600" height="526">
 
 With the ships on the map as shown the computer will need 9 more shots until the first hit at C:3. At this point it is possible to see how even though must of the previous shots were misses, the high numbers are starting to align with the ship locations on the board.
 
-<img src="/images/port/battleship/poss_example_4.PNG" alt="Board With Ships" width="600" height="526">
+<img src="/images/port/battleship/poss_example_4.png" alt="Board With Ships" width="600" height="526">
 
 For this level there is no hunt mode as I wanted to see how just going after the most likely locations would effect computer performance. compared to the other modes. At this level the cost of computation becomes clear. As written after each play each cell's value is calculated for each ship. For a single game this small calculation is not noticeable, but for a 1,000 games to be played there is a definite increase in time. To play 1,000 games it took about 388 seconds which is about 6 minutes. This time could be decreased by implementing multi-threading or parallel processing for the calculations.
 
