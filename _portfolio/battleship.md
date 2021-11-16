@@ -17,7 +17,7 @@ As a quick refresher, the rules of Battleship are pretty easy to understand.
 
 Each player has a 10 x 10 grid to place 5 ships on. The grid is similar to the one below.
 
-<img src="/images/port/battleship/blank_board.PNG" alt="Blank Board" >
+<img src="/images/port/battleship/blank_board.png" alt="Blank Board" >
 
 Each of the five ships takes up a different footprint on the map.
 
