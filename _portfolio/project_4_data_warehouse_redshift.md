@@ -1,6 +1,6 @@
 ---
 title: "Data Warehouse with AWS Redshift"
-excerpt: "Create Data Lake using AWS Redshift for the Udacity Data Engineering Nanodegree."
+excerpt: "Create Data Lake using AWS Redshift."
 header:
   overlay_image:  /images/port/redshift/banner.png
   overlay_filter: 0.50
@@ -8,7 +8,7 @@ header:
 ---
 
 <h2> Project Background </h2>
-This project is part of the Udacity Data Engineering Nanodegree.  For this project the fictional company Sparkify has grown past the initial databases created in the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and now the company needs a more robust database to store the ever increasing data.  The goal of this project is to create a database inside of AWS Redshift and populate it from log files stored in an s3 Bucket.  This project also introduces the concept of infrastructure as code.  Part of the project entails creating a python script to launch a new AWS Redshift cluster.
+For this project the fictional company Sparkify has grown past the initial databases created in the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and now the company needs a more robust database to store the ever increasing data.  The goal of this project is to create a database inside of AWS Redshift and populate it from log files stored in an s3 Bucket.  This project also introduces the concept of infrastructure as code.  Part of the project entails creating a python script to launch a new AWS Redshift cluster.
 
 The GitHub for this project is located here: [Redshift-Data-Warehouse-Project](https://github.com/tvanpat/redshift-data-warehouse-project)
 
@@ -201,8 +201,8 @@ This project while similar to the [PostgreSQL-Data-Modeling Project](https://www
 </ol>
 
 <h2> Lessons Learned/Final Thoughts </h2>
-I learned a couple important lessons during this exercise.  The first is that your AWS credentials can be saved in your .ipynb_checkpoints file.  I learned this after a push to my GitHub repository, were in about 15 seconds I have several emails from GitHub and Amazon, along with Amazon calling my phone number.  There were several frantic minutes of removing tokens and deleting repositories.  All in all it was a valuable lesson, that thankfully didn't cost me anything but time.
+I learned a couple important lessons during this project.  The first is that your AWS credentials can be saved in your .ipynb_checkpoints file.  I learned this after a push to my GitHub repository, were in about 15 seconds I have several emails from GitHub and Amazon, along with Amazon calling my phone number.  There were several frantic minutes of removing tokens and deleting repositories.  All in all it was a valuable lesson, that thankfully didn't cost me anything but time.
 
 The second part I really enjoyed was learning how to interact with AWS through pure code.  This is where the infrastructure as code concept really hit home for me.  Not only is this more convenient to start a cluster through some basic python code, it is also makes scaling infrastructure very easy.  Through a simple code change a cluster can be started and stopped and can even be done based on conditions set in an if statement.  This is a very powerful concept, and made me prioritize my learning of Docker, which I will discuss in a later blog post.
 
-This is where in the Udacity course I started to learn more concepts.  The use of s3 buckets, the use python to start and stop Redshift clusters, and staging tables.  These are all concepts I applied in my capstone project.  Overall this was a challenging project as I had to learn new concepts.  The easy part was moving the data from the staging table to the final database, the hard part was all the easy stuff before.  But that is the point of Data Engineering, to quickly and efficiently move data from one place to another.
+This is one of the projects where I started to incorporate the use of more complex systems.  The use of s3 buckets, the use python to start and stop Redshift clusters, and staging tables.  These are all concepts I have applied in other projects.  Overall this was a challenging project as I had to learn new concepts.  The easy part was moving the data from the staging table to the final database, the hard part was all the easy stuff before.  But that is the point of Data Engineering, to quickly and efficiently move data from one place to another.

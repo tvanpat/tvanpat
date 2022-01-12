@@ -1,6 +1,6 @@
 ---
 title: "Data Lakes with Spark"
-excerpt: "Constructing an ETL pipeline from s3 to AWS Spark for the Udacity Data Engineering Nanodegree."
+excerpt: "Constructing an ETL pipeline from s3 to AWS Spark.."
 header:
   overlay_image:  images/port/spark/AWS-Main-banner.jpg
   overlay_filter: 0
@@ -8,7 +8,7 @@ header:
 ---
 
 <h2> Project Background </h2>
-This project is part of the Udacity Data Engineering nano-degree.  As such it will follow a similar style as [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and [Data Warehouse Project](https://www.descriptdata.com/portfolio/data_warehouse_redshift/) in that the company Sparkify is rapid gowning and need a data system which can support the analytical needs of their staff.  The Sparkify team started with PostgreSQL and then moved to Redshift and now wants to use Spark.
+This project is similar to the [PostgreSQL-Data-Modeling Project](https://www.descriptdata.com/portfolio/data_model_postgresql/) and [Data Warehouse Project](https://www.descriptdata.com/portfolio/data_warehouse_redshift/) in that the company Sparkify is rapid gowning and need a data system which can support the analytical needs of their staff.  The Sparkify team started with PostgreSQL and then moved to Redshift and now wants to use Spark.
 
 The GitHub for this project is located here: [Data-Lake-With-AWS](https://github.com/tvanpat/data-lake-with-aws)
 

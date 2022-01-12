@@ -1,6 +1,6 @@
 ---
 title: "Data Modeling with Cassandra"
-excerpt: " Data Modeling with Cassandra: Second project for the Udacity Data Engineering Nanodegree."
+excerpt: " Data Modeling with Cassandra."
 header:
   overlay_image:  images/port/cassandra_model/cassandra_banner.png
   overlay_filter: 0.5
@@ -8,7 +8,7 @@ header:
 ---
 
 <h2> Project Background </h2>
-This project is part of the Udacity Data Engineering Nanodegree.  This is the introductory project after several classes on data modeling in the wide column store NoSQL database Cassandra.  For this project the student is to design a NoSQL database that is able to retrieve information about songs users are listening to.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
+This is the introductory project on data modeling in the wide column store NoSQL database Cassandra.  For this project I designed a NoSQL database that is able to retrieve information about songs users are listening to.  The student is required to design, build, and populate an analytical database from user logs and song data files.  
 
 The GitHub for this project is located here: [Cassandra-Data-Modeling](https://github.com/tvanpat/data-modeling-with-apache-cassandra)
 

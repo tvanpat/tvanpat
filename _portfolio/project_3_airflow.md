@@ -1,6 +1,6 @@
 ---
 title: "Workflows with Apache Airflow"
-excerpt: "Automating ETL workflows with Apache Airflow for the Udacity Data Engineering Nanodegree."
+excerpt: "Automating ETL workflows with Apache Airflow."
 header:
   overlay_image:  images/port/airflow/airflow_banner.jpg
   overlay_filter: .25
@@ -40,6 +40,6 @@ The DAG is a Directed Acyclic Graph.  Generally speaking this is a map of the wo
 
 
 <h2> Lessons Learned/Final Thoughts </h2>
-This was perhaps one of my favorite assignments.  This project went beyond just writing table creation statements and insert queries, but rather focused on how to make this type of data movement sustainable.  While running a Python ETL script manually once a day is not difficult or time consuming, it is a process that can easily be automated.  By using a product such as airflow it is easy to not only automate the process but also monitor the pipeline for issues.
+This was perhaps one of my favorite projects.  This project went beyond just writing table creation statements and insert queries, but rather focused on how to make this type of data movement sustainable.  While running a Python ETL script manually once a day is not difficult or time consuming, it is a process that can easily be automated.  By using a product such as airflow it is easy to not only automate the process but also monitor the pipeline for issues.
 
-While the lesson itself was not difficult, it was important to learn the concepts and how to implement a sustainable process into Airflow.
+While the project itself was not difficult, it was important to learn the concepts and how to implement a sustainable process into Airflow.

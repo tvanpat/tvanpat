@@ -1,17 +1,26 @@
 ---
 title: "ETL Pipeline for NFL Game Data"
-excerpt: "Building a full ETL Pipeline for NFL game data for the Udacity Data Engineering Nanodegree."
+excerpt: "Building a full ETL Pipeline for NFL game data from the NFL API to AWS Redshift."
 header:
   overlay_image:  images/port/capstone/banner2.png
   teaser: images/port/capstone/teaser.png
 ---
 
 <h2> Project Background </h2>
-For the capstone Udacity project students have the choice of using one of their datasets or creating their own project.  I chose to do my own project using NFL data to build an ETL pipeline.  I was in the process of building a basic ETL pipeline for my [nfl2sql](https://github.com/tvanpat/nfl2sql) project, but I wanted to employ the methods I learned in this class to have a more robust and better database.  The good news is I was able to complete this project using data available from an NFL endpoint.  The bad news is as of early May 2020, this API closed to unregistered access, so I am unable to build upon the success in this project and as it stands this project is impossible to recreate.
+The purpose of this project was to take NFL game data from the now deprecated NFL API extract the details, conduct required data transformations and store the data in AWS Redshift. I was going to use this project to enable me to further analyze NFL game data; however, the NFL has since restricted access to this dataset. As such it is impossible to replicate this project.
 
 The end goal of this project is to have a database where it is possible to conduct complex aggregate based queries against NFL data.  To do this I used game data available from the [NFL API](https://api.nfl.com/docs/getting-started/index.html), but as I stated earlier this API is no longer available to unregistered users.
 
-The GitHub for this project is located here: [NFL-Data-Pipeline](https://github.com/tvanpat/udacity_data_eng_capstone_nfl_data)
+This project used several technologies:
+<ul>
+      <li>Apache Airflow for the workflow management</li>
+      <li>AWS Lambda to fetch data, extract and transform data</li>
+      <li>AWS s3 for JSON storage</li>
+      <li>AWS Redshift used as the analytical database</li>
+      <li>Python was used as the primary programming language</li>
+</ul>
+
+The GitHub for this project is located here: [NFL-Data-Pipeline](https://github.com/tvanpat/nfl_etl_redshift)
 
 <h2> Project Datasets </h2>
 The NFL datasets used in this picture come from the NFL Teams, Schedule, Coaches, Players, and Games come from the NFL endpoint.
@@ -35,7 +44,7 @@ The NFL datasets used in this picture come from the NFL Teams, Schedule, Coaches
       <li>Team Ticket URL </li>
   </ul>
 
-**Schedule**:  The full schedule for the entire year was posted at https://www.nfl.com/feeds-rs/schedules/<yeaer>.json.  For example the 2019 season use to be found here https://www.nfl.com/feeds-rs/schedules/2019.json.  The only changes that are made during the year are for the post season game locations.  The following data is provided from this endpoint:
+**Schedule**:  The full schedule for the entire year was posted at https://www.nfl.com/feeds-rs/schedules/<year>.json.  For example the 2019 season use to be found here https://www.nfl.com/feeds-rs/schedules/2019.json.  The only changes that are made during the year are for the post season game locations.  The following data is provided from this endpoint:
 
 <ul>
     <li>Season: </li>
@@ -181,7 +190,7 @@ This project incorporated tools from both the Udacity course as well as other AW
 
 <h2> Final Database Schema </h2>
 
-The data model used is a simple star data model.  This data model works well as it is easy to query with quick speeds.  The table has not been taken to 3NF, while this increases redudancy it will result in faster return times on queries.  Once the data has been preprocessed and placed in the correct s3 folder it can be copied into the the staging table.  From the staging tables it will be inserted into the correct fact and dimension tables.
+The data model used is a simple star data model.  This data model works well as it is easy to query with quick speeds.  The table has not been taken to 3NF, while this increases redundancy it will result in faster return times on queries.  Once the data has been preprocessed and placed in the correct s3 folder it can be copied into the the staging table.  From the staging tables it will be inserted into the correct fact and dimension tables.
 
 The mapping for S3 folder to staging table to fact or dim table is as follows:
 
@@ -529,4 +538,4 @@ After all the staging tables have populated the fact and dimension tables a data
 The goal of this project was to build a database from NFL endpoints. This database will allow people to conduct queries on players, teams, and coaches performances. This can be used by NFL fans as well as those who play fantasy football to help plan their team and track potential points.
 The primary tools for this project were Python, AWS Lambda, AWS s3, AWS Redshift, and Airflow. AWS Lambda was used to help preprocess data that could take hours if done sequentially, by using Lambda this data preprocessing was reduced to minutes. AWS s3 storage was used for the json files as the storage is cheap and easily connects to AWS Lambda and Redshift. AWS Redshift was used to store the data. By using a column store distributed database, data should be readily available and returned quickly. By using Airflow the ability to schedule the transfer of the data from S3 to staging tables and finally to the dimension and fact tables.
 
-For me this project is bittersweet.  After working with the NFL data for about a year, I finally found a way to easily move the data into a database which allowed for aggregate analysis only for the NFL to stop public access to the endpoints.  This project allowed me to incorporate all the tools I had used during the Udacity course.  Overall this was a challenging and fun capstone and I am glad I did not use the datasets provided by Udacity.
+For me this project is bittersweet.  After working with the NFL data for about a year, I finally found a way to easily move the data into a database which allowed for aggregate analysis only for the NFL to stop public access to the endpoints.  This project allowed me to incorporate all the tools I had used in several other projects and was a great exercise.
